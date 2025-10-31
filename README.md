@@ -5,7 +5,14 @@
 - Creating <b>interactive D3.js charts</b> and tooltips<br/>
 - Understanding <b>visual storytelling principles</b><br/>
 - Experience presenting technical insights clearly and visually<br/>
-<br/> <h2>Presentation</h2> 📊 View the presentation slides here: (https://github.com/marriammahmed/DV_CorAnalysisAIandGlobalHealthIndex/blob/main/AI-Adoption-and-Global-Health-Outcomes%20(1).pptx) <br/> <h2>Languages and Utilities Used</h2>
+<br/><h2>Presentation</h2>
+
+📊 <b>View the presentation slides here:</b> 
+<a href="https://github.com/marriammahmed/DV_CorAnalysisAIandGlobalHealthIndex/blob/main/AI-Adoption-and-Global-Health-Outcomes%20(1).pptx">AI Adoption & Global Health Outcomes</a><br/><br/>
+
+🌐 <b>Web Development:</b> <a href="https://github.com/marriammahmed/certs/blob/main/react_mariam_ahmed.pdf">AUS</a><br/><br/>
+
+<h2>Languages and Utilities Used</h2>
 <b>HTML</b><br/>
 <b>CSS</b><br/>
 <b>JavaScript</b><br/>
