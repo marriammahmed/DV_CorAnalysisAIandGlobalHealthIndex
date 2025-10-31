@@ -5,7 +5,7 @@
 - Creating <b>interactive D3.js charts</b> and tooltips<br/>
 - Understanding <b>visual storytelling principles</b><br/>
 - Experience presenting technical insights clearly and visually<br/>
-<br/> <h2>Presentation</h2> 📊 View the presentation slides here: (add your link) <br/> <h2>Languages and Utilities Used</h2>
+<br/> <h2>Presentation</h2> 📊 View the presentation slides here: (https://github.com/marriammahmed/DV_CorAnalysisAIandGlobalHealthIndex/blob/main/AI-Adoption-and-Global-Health-Outcomes%20(1).pptx) <br/> <h2>Languages and Utilities Used</h2>
 <b>HTML</b><br/>
 <b>CSS</b><br/>
 <b>JavaScript</b><br/>
@@ -13,4 +13,4 @@
 <h2>Environments Used</h2>
 <b>Local development server</b>
 <b>VS Code</b>
-<br/> <h2>Program Walk-Through:</h2> <p align="center"> Homepage with visualization: <br/> <img src="ADD_IMAGE_LINK" height="80%" width="80%" alt="Visualization Screenshot"/> <br/><br/> Interactive dataset filter: <br/> <img src="ADD_IMAGE_LINK" height="80%" width="80%" alt="Filters Screenshot"/> <br/><br/> Tooltip details on data points: <br/> <img src="ADD_IMAGE_LINK" height="80%" width="80%" alt="Tooltip Screenshot"/> <br/><br/> </p>
+<br/> <h2>Program Walk-Through:</h2> <p align="center">  <br/><br/>Methodology: <br/> <img src="https://i.imgur.com/923KBZ0.png" height="80%" width="80%" alt="Tooltip Screenshot"/> <br/><br/>Bubble Clustering of Health Scores: <br/> <img src="https://i.imgur.com/I0Zgdxs.png" height="80%" width="80%" alt="Visualization Screenshot"/> <br/><br/> Interactive graph with hovering features: <br/> <img src="https://i.imgur.com/j6ny1pT.png" height="80%" width="80%" alt="Filters Screenshot"/> </p>
