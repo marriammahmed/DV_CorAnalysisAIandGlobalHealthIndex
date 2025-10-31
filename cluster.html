@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>Attack Type Severity</title>
+</head>
+<body>
+    <svg width="800" height="500"></svg>
+    <script>
+        // Load CSV file dynamically
+        d3.csv("ai_ml_cybersecurity_dataset.csv").then(data => {
+            // Map severity levels to numeric values
+            const severityMapping = { "Low": 1, "Medium": 2, "High": 3, "Critical": 4 };
+
+            // Convert severity to numerical values
+            data.forEach(d => {
+                d.SeverityScore = severityMapping[d["Attack Severity"]];
+            });
+
+            const attackGroups = d3.group(data, d => d["Attack Type"]);
+            const attackData = Array.from(attackGroups, ([attack, values]) => ({
+                attack: attack,
+                severity: d3.mean(values, d => d.SeverityScore)
+            }));
+
+            // Dimensions
+            const width = 800, height = 500;
+            const margin = { top: 40, right: 20, bottom: 50, left: 50 };
+
+            // Adjusted Scales to enhance visibility of differences
+            const xScale = d3.scaleBand()
+                .domain(attackData.map(d => d.attack))
+                .range([margin.left, width - margin.right])
+                .padding(0.3);
+
+            const yScale = d3.scaleLinear()
+                .domain([Math.min(...attackData.map(d => d.severity)) - 0.2, Math.max(...attackData.map(d => d.severity)) + 0.2])
+                .range([height - margin.bottom, margin.top]);
+
+            // Create SVG
+            const svg = d3.select("svg").attr("width", width).attr("height", height);
+
+            // Bars
+            svg.selectAll("rect")
+                .data(attackData)
+                .enter()
+                .append("rect")
+                .attr("x", d => xScale(d.attack))
+                .attr("y", d => yScale(d.severity))
+                .attr("width", xScale.bandwidth())
+                .attr("height", d => height - margin.bottom - yScale(d.severity))
+                .attr("fill", "steelblue");
+
+            // X-axis
+            svg.append("g")
+                .attr("transform", `translate(0,${height - margin.bottom})`)
+                .call(d3.axisBottom(xScale));
+
+            // Y-axis
+            svg.append("g")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(yScale).ticks(6));
+
+            // Labels
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", height - 10)
+                .attr("text-anchor", "middle")
+                .text("Attack Type");
+
+            svg.append("text")
+                .attr("x", -height / 2)
+                .attr("y", 15)
+                .attr("text-anchor", "middle")
+                .attr("transform", "rotate(-90)")
+                .text("Average Severity Score");
+        });
+    </script>
+</body>
+</html>

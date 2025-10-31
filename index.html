@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Cybersecurity Attack Visualization</title>
+    <style>
+        .bar {
+            fill: steelblue;
+        }
+        .bar:hover {
+            fill: orange;
+        }
+        .axis-label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="400"></svg>
+    <script>
+        const data = [
+            { category: "Ransomware", count: 50 },
+            { category: "Malware", count: 70 },
+            { category: "DDoS", count: 40 },
+            { category: "Phishing", count: 60 }
+        ];
+
+        const width = 600, height = 400;
+        const svg = d3.select("svg"),
+              margin = { top: 20, right: 30, bottom: 40, left: 50 },
+              chartWidth = width - margin.left - margin.right,
+              chartHeight = height - margin.top - margin.bottom;
+
+        const x = d3.scaleBand()
+            .domain(data.map(d => d.category))
+            .range([0, chartWidth])
+            .padding(0.2);
+
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.count)])
+            .nice()
+            .range([chartHeight, 0]);
+
+        const chart = svg.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        chart.append("g")
+            .selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.category))
+            .attr("y", d => y(d.count))
+            .attr("height", d => chartHeight - y(d.count))
+            .attr("width", x.bandwidth());
+
+        chart.append("g")
+            .attr("transform", `translate(0,${chartHeight})`)
+            .call(d3.axisBottom(x));
+
+        chart.append("g")
+            .call(d3.axisLeft(y));
+    </script>
+</body>
+</html>
